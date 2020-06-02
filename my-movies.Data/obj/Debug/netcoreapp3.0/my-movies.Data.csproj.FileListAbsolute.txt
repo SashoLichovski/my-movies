@@ -1,0 +1,7 @@
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\my-movies.Data\bin\Debug\netcoreapp3.0\my-movies.Data.deps.json
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\my-movies.Data\bin\Debug\netcoreapp3.0\my-movies.Data.dll
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\my-movies.Data\bin\Debug\netcoreapp3.0\my-movies.Data.pdb
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\my-movies.Data\obj\Debug\netcoreapp3.0\my-movies.Data.AssemblyInfoInputs.cache
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\my-movies.Data\obj\Debug\netcoreapp3.0\my-movies.Data.AssemblyInfo.cs
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\my-movies.Data\obj\Debug\netcoreapp3.0\my-movies.Data.dll
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\my-movies.Data\obj\Debug\netcoreapp3.0\my-movies.Data.pdb

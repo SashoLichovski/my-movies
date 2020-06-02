@@ -1,0 +1,271 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies\\my-movies.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj",
+        "projectName": "my-movies.Data",
+        "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj",
+        "packagesPath": "C:\\Users\\Sasho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sasho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Repository\\my-movies.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Repository\\my-movies.Repository.csproj",
+        "projectName": "my-movies.Repository",
+        "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Repository\\my-movies.Repository.csproj",
+        "packagesPath": "C:\\Users\\Sasho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sasho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj": {
+                "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Service\\my-movies.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Service\\my-movies.Service.csproj",
+        "projectName": "my-movies.Service",
+        "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Service\\my-movies.Service.csproj",
+        "packagesPath": "C:\\Users\\Sasho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sasho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Repository\\my-movies.Repository.csproj": {
+                "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Repository\\my-movies.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies\\my-movies.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies\\my-movies.csproj",
+        "projectName": "my-movies",
+        "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies\\my-movies.csproj",
+        "packagesPath": "C:\\Users\\Sasho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sasho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Service\\my-movies.Service.csproj": {
+                "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Service\\my-movies.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
