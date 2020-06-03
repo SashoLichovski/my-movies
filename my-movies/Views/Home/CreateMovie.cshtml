@@ -1,0 +1,44 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model my_movies.ViewModels.CreateMovieModel
+@{
+    ViewData["Title"] = "CreateMovie";
+    Layout = "_Layout";
+}
+
+<style>
+    .formContainer input{
+        width: 30%;
+        margin: auto;
+        margin-top: 20px;
+    }
+    .formContainer{
+        width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+</style>
+
+<form class="formContainer" asp-controller="Home" asp-action="CreateMovie">
+
+    <input placeholder="Image Url" asp-for="ImageUrl" class="form-control" />
+    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+
+    <input placeholder="Title" asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+
+    <input placeholder="Description" asp-for="Description" class="form-control" />
+    <span asp-validation-for="Description" class="text-danger"></span>
+
+    <input placeholder="Cast" asp-for="Cast" class="form-control" />
+    <span asp-validation-for="Cast" class="text-danger"></span>
+
+    <input placeholder="Genre" asp-for="Genre" class="form-control" />
+    <span asp-validation-for="Genre" class="text-danger"></span>
+
+    <input placeholder="Duration" asp-for="Duration" class="form-control" />
+    <span asp-validation-for="Duration" class="text-danger"></span>
+    <br />
+
+    <input class="btn btn-dark text-light" value="Add" type="submit">
+</form>
+

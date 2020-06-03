@@ -14,6 +14,8 @@ namespace my_movies.Data
         [Required]
         public string Description { get; set; }
         [Required]
+        public string ImageUrl { get; set; }
+        [Required]
         public string Cast { get; set; }
         [Required]
         public string Genre { get; set; }

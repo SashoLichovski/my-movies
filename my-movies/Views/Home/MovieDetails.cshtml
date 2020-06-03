@@ -1,0 +1,20 @@
+﻿@model my_movies.ViewModels.MovieDetailsModel
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="container" style="text-align: center">
+    <img src="@Model.ImageUrl" />
+    <h2>@Model.Title</h2>
+    <br />
+    <h5>Description</h5>
+    <p>@Model.Description</p>
+    <br />
+    <h5>Cast</h5>
+    <p>@Model.Cast</p>
+    <br />
+    <p>Duration @Model.Duration min</p>
+    <p>Views: @Model.Views</p>
+    <p>Date created: @Model.DateCreated</p>
+</div>

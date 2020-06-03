@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj": {}
+    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies.Data\\my-movies.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj": {
+    "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies.Data\\my-movies.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies.Data\\my-movies.Data.csproj",
         "projectName": "my-movies.Data",
-        "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\my-movies.Data.csproj",
+        "projectPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies.Data\\my-movies.Data.csproj",
         "packagesPath": "C:\\Users\\Sasho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies\\my-movies.Data\\obj\\",
+        "outputPath": "C:\\Users\\Sasho\\Desktop\\MVC\\my-movies\\my-movies.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Sasho\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -43,6 +43,12 @@
               "version": "[3.1.4, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.4, )"
             }
