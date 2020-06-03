@@ -1,12 +1,12 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
+@model List<my_movies.ViewModels.ModifyMoviesModel>
 @{
     Layout = "_Layout";
 }
 
 <div class="container">
     <a class="btn btn-dark text-light" style="margin: 20px" asp-controller="Home" asp-action="CreateMovie">Add movie</a>
-    <table class="table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>Title</th>
@@ -14,10 +14,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Title</td>
-                <td>Actions</td>
-            </tr>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@movie.Title</td>
+                    <td>
+                        <a asp-controller="Home" asp-action="EditMovie" asp-route-id="@movie.Id">Edit</a> | 
+                        <a asp-controller="Home" asp-action="DeleteMovie" asp-route-id="@movie.Id">Delete</a>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

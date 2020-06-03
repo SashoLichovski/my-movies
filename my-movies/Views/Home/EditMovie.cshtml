@@ -1,0 +1,35 @@
+﻿@model my_movies.ViewModels.EditMovieModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "EditMovie";
+    Layout = "_Layout";
+}
+
+
+    <form class="formContainer" asp-controller="Home" asp-action="EditMovie">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="DateCreated" />
+        <input type="hidden" asp-for="Views" />
+
+        <input placeholder="Image Url" asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+
+        <input placeholder="Title" asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+
+        <input placeholder="Description" asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+
+        <input placeholder="Cast" asp-for="Cast" class="form-control" />
+        <span asp-validation-for="Cast" class="text-danger"></span>
+
+        <input placeholder="Genre" asp-for="Genre" class="form-control" />
+        <span asp-validation-for="Genre" class="text-danger"></span>
+
+        <input placeholder="Duration" asp-for="Duration" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+        <br />
+
+        <input class="btn btn-dark text-light" value="Save" type="submit">
+    </form>
+

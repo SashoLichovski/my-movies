@@ -38,5 +38,23 @@ namespace my_movies.Repository
             Context.Movies.Add(movie);
             Context.SaveChanges();
         }
+
+        public void Remove(int id)
+        {
+            var movie = Context.Movies.FirstOrDefault(x => x.Id == id);
+            Context.Movies.Remove(movie);
+            Context.SaveChanges();
+        }
+
+        public Movie GetById(int id)
+        {
+            return Context.Movies.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void UpdateMovie(Movie movie)
+        {
+            Context.Movies.Update(movie);
+            Context.SaveChanges();
+        }
     }
 }

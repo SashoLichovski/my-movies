@@ -65,8 +65,34 @@ namespace my_movies.Controllers
 
         public IActionResult ModifyMovies()
         {
+            var allMovies = MovieService.GetAll();
+            var converted = new List<ModifyMoviesModel>();
+            allMovies.ForEach(x => converted.Add(ConvertModel.ConvertToModifyMoviesModel(x)));
+            return View(converted);
+        }
 
-            return View();
+        public IActionResult DeleteMovie(int id)
+        {
+            MovieService.Remove(id);
+            return RedirectToAction("ModifyMovies");
+        }
+
+        public IActionResult EditMovie(int id)
+        {
+            var movie = MovieService.GetById(id);
+            var converted = ConvertModel.ConvertToEditMovieModel(movie);
+            return View(converted);
+        }
+        [HttpPost]
+        public IActionResult EditMovie(EditMovieModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var converted = ConvertModel.EditMovieToMovie(model);
+                MovieService.Update(converted);
+                return RedirectToAction("ModifyMovies");
+            }
+            return View(model);
         }
     }
 }

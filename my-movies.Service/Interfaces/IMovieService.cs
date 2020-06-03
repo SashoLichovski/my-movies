@@ -11,5 +11,8 @@ namespace my_movies.Service.Interfaces
         Movie MovieDetailsById(int id);
         List<Movie> SearchMovies(string search);
         void AddMovie(Movie movie);
+        void Remove(int id);
+        Movie GetById(int id);
+        void Update(Movie movie);
     }
 }

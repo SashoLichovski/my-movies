@@ -11,5 +11,8 @@ namespace my_movies.Repository.Interfaces
         Movie MovieDetailsById(int id);
         List<Movie> SearchMovies(string search);
         void Add(Movie movie);
+        void Remove(int id);
+        Movie GetById(int id);
+        void UpdateMovie(Movie movie);
     }
 }

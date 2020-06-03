@@ -34,5 +34,20 @@ namespace my_movies.Service
         {
             MovieRepo.Add(movie);
         }
+
+        public void Remove(int id)
+        {
+            MovieRepo.Remove(id);
+        }
+
+        public Movie GetById(int id)
+        {
+            return MovieRepo.GetById(id);
+        }
+
+        public void Update(Movie movie)
+        {
+            MovieRepo.UpdateMovie(movie);
+        }
     }
 }

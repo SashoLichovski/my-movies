@@ -5,19 +5,6 @@
     Layout = "_Layout";
 }
 
-<style>
-    .formContainer input{
-        width: 30%;
-        margin: auto;
-        margin-top: 20px;
-    }
-    .formContainer{
-        width: 90%;
-        margin: auto;
-        text-align: center;
-    }
-</style>
-
 <form class="formContainer" asp-controller="Home" asp-action="CreateMovie">
 
     <input placeholder="Image Url" asp-for="ImageUrl" class="form-control" />
