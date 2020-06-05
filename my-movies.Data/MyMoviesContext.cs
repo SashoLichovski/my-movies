@@ -13,5 +13,6 @@ namespace my_movies.Data
         }
 
         public virtual DbSet<Movie> Movies { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

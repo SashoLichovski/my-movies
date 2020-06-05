@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using my_movies.Data;
 
 namespace my_movies.Data.Migrations
 {
     [DbContext(typeof(MyMoviesContext))]
-    partial class MyMoviesContextModelSnapshot : ModelSnapshot
+    [Migration("20200603115356_AuthImplementation")]
+    partial class AuthImplementation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

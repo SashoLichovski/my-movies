@@ -91,5 +91,23 @@ namespace my_movies.Helpers
             };
             return model;
         }
+        public static User ConvertToUser(UserModel model)
+        {
+            var user = new User()
+            {
+                Username = model.Username,
+                Password = model.Password
+            };
+            return user;
+        }
+        public static User ConvertToUser(RegisterUserModel model)
+        {
+            var user = new User()
+            {
+                Username = model.Username,
+                Password = model.Password
+            };
+            return user;
+        }
     }
 }

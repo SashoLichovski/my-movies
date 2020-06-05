@@ -217,3 +217,5 @@ C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Vie
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\ModifyMovies.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\CreateMovie.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\EditMovie.cshtml.g.cs
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Auth\SignIn.cshtml.g.cs
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Auth\Register.cshtml.g.cs

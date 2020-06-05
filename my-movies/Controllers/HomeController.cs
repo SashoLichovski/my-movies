@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using my_movies.Helpers;
@@ -11,6 +12,7 @@ using my_movies.ViewModels;
 
 namespace my_movies.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public IMovieService MovieService { get; }
@@ -18,7 +20,7 @@ namespace my_movies.Controllers
         {
             MovieService = movieService;
         }
-
+        [AllowAnonymous]
         public IActionResult HomePage(string search)
         {
             var allMovies = MovieService.GetAll();
@@ -39,7 +41,7 @@ namespace my_movies.Controllers
 
             return View(converted);
         }
-
+        [AllowAnonymous]
         public IActionResult MovieDetails(int id)
         {
             var movie = MovieService.MovieDetailsById(id);

@@ -20,9 +20,27 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" asp-controller="Home" asp-action="HomePage">Home <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link  text-light" asp-controller="Home" asp-action="ModifyMovies">Modify movies</a>
-                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link  text-light" asp-controller="Home" asp-action="ModifyMovies">Modify movies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light" asp-controller="Auth" asp-action="SignIn">Hi @User.Identity.Name !</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a class="nav-link  text-light" asp-controller="Auth" asp-action="SignIn">Sign in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link  text-light" asp-controller="Auth" asp-action="Register">Register</a>
+                    </li>
+                }
                 <li class="nav-item dropdown  text-light">
                     <a class="nav-link dropdown-toggle  text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         About Us
