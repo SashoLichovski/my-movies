@@ -15,15 +15,32 @@ namespace my_movies.Repository
             Context = context;
         }
 
-        public User GetUserByUsername(User userModel)
+        public User GetUserByUsername(string username)
         {
-            var user = Context.Users.FirstOrDefault(x => x.Username == userModel.Username);
+            var user = Context.Users.FirstOrDefault(x => x.Username == username);
             return user;
         }
 
         public void Add(User user)
         {
             Context.Users.Add(user);
+            Context.SaveChanges();
+        }
+
+        public User GetUserById(int id)
+        {
+            return Context.Users.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void UpdateUsername(User user)
+        {
+            Context.Users.Update(user);
+            Context.SaveChanges();
+        }
+
+        public void UpdatePassword(User user)
+        {
+            Context.Users.Update(user);
             Context.SaveChanges();
         }
     }

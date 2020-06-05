@@ -22,13 +22,14 @@ namespace my_movies.Service
 
         public async Task<bool> SignInAsync(User user, HttpContext httpContext)
         {
-            var iUser = UserRepo.GetUserByUsername(user);
+            var iUser = UserRepo.GetUserByUsername(user.Username);
             if (iUser != null && iUser.Password == user.Password)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.Username),
-                    new Claim(ClaimTypes.Name, user.Username)
+                    new Claim(ClaimTypes.NameIdentifier, iUser.Username),
+                    new Claim(ClaimTypes.Name, iUser.Username),
+                    new Claim("Id", iUser.Id.ToString())
                 };
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
@@ -47,7 +48,7 @@ namespace my_movies.Service
 
         public bool SignUp(User user)
         {
-            var newUser = UserRepo.GetUserByUsername(user);
+            var newUser = UserRepo.GetUserByUsername(user.Username);
             if (newUser == null)
             {
                 UserRepo.Add(user);

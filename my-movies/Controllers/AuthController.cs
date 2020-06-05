@@ -60,15 +60,21 @@ namespace my_movies.Controllers
                 var state = AuthService.SignUp(user);
                 if (state)
                 {
-                    return RedirectToAction("HomePage", "Home");
+                    return RedirectToAction("SuccessfulRegister", "Auth");
                 }
                 else
                 {
+                    ModelState.AddModelError(string.Empty, $"Username '{registerUser.Username}' already exists");
                     return View(registerUser);
                 }
                 
             }
             return View(registerUser);
+        }
+
+        public IActionResult SuccessfulRegister()
+        {
+            return View();
         }
     }
 }

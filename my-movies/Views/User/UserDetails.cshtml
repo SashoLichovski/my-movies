@@ -1,0 +1,19 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model my_movies.ViewModels.UserDetailsModel
+@{
+    ViewData["Title"] = "UserDetails";
+    Layout = "_Layout";
+    var password = "";
+    foreach (var x in Model.Password)
+    {
+        password += "*";
+    }
+}
+
+<div class="userDetailsContainer">
+    <h1>UserDetails</h1>
+    <br />
+    <p><h4>Username: </h4> @Model.Username [<a asp-controller="User" asp-action="ChangeUsername" asp-route-id="@Model.Id">change</a>]</p>
+    <p><h4>Password: </h4> @password [<a asp-controller="User" asp-action="ChangePassword" asp-route-id="@Model.Id">change</a>]</p>
+</div>
+

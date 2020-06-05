@@ -35,6 +35,29 @@ namespace my_movies.Helpers
             };
             return model;
         }
+
+        public static ChangeUsernameModel ToChangeUsernameModel(User user)
+        {
+            var model = new ChangeUsernameModel()
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Password = user.Password
+            };
+            return model;
+        }
+
+        public static ChangePasswordModel ToChangePasswordModel(User user)
+        {
+            var model = new ChangePasswordModel()
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Password = user.Password
+            };
+            return model;
+        }
+
         public static Movie ConvertToMovieModel(CreateMovieModel movieModel)
         {
             var model = new Movie()
@@ -108,6 +131,16 @@ namespace my_movies.Helpers
                 Password = model.Password
             };
             return user;
+        }
+        public static UserDetailsModel ConvertToUserDetailsModel(User user)
+        {
+            var currentUser = new UserDetailsModel()
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Password = user.Password
+            };
+            return currentUser;
         }
     }
 }

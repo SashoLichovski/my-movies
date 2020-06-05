@@ -7,7 +7,10 @@ namespace my_movies.Repository.Interfaces
 {
     public interface IUserRepository
     {
-        User GetUserByUsername(User userModel);
+        User GetUserByUsername(string username);
         void Add(User user);
+        User GetUserById(int id);
+        void UpdateUsername(User user);
+        void UpdatePassword(User user);
     }
 }

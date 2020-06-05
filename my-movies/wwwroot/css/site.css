@@ -9,12 +9,19 @@
     margin: auto;
     text-align: center;
 }
-
+.registerMessageContainer{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.userDetailsContainer{
+    padding: 20px;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
