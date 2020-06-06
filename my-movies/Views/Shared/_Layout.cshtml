@@ -1,4 +1,11 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{ 
+    var disable = "";
+    if (ViewBag.header != "All movies")
+    {
+        disable = "disabled";
+    }
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +43,7 @@
                             Hi @User.Identity.Name !
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" asp-controller="User" asp-action="UserDetails">Account settings</a>
                             <a class="dropdown-item" asp-controller="Home" asp-action="ModifyMovies">Modify movies</a>
                             @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin" || User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "sub-admin")
                             {
@@ -60,8 +68,8 @@
                 }
             </ul>
             <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="HomePage">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" @disable>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" @disable>Search</button>
             </form>
         </div>
     </nav>
