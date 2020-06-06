@@ -31,14 +31,22 @@
                 </li>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li class="nav-item">
-                        <a class="nav-link  text-light" asp-controller="Home" asp-action="ModifyMovies">Modify movies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  text-light" asp-controller="Auth" asp-action="SignOut">Sign out</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link  text-light" asp-controller="User" asp-action="UserDetails">Hi @User.Identity.Name !</a>
+                    <li class="nav-item dropdown  text-light">
+                        <a class="nav-link dropdown-toggle  text-light" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Hi @User.Identity.Name !
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <a class="dropdown-item" asp-controller="Home" asp-action="ModifyMovies">Modify movies</a>
+                            @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin" || User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "sub-admin")
+                            {
+                                @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin")
+                                {
+                                    <a class="dropdown-item" asp-controller="User" asp-action="ManageUsers">Manage users</a>
+                                }
+                                <a class="dropdown-item" asp-controller="Home" asp-action="MoviesForApproval">Approve movies</a>
+                            }
+                            <a class="dropdown-item" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+                        </div>
                     </li>
                 }
                 else
@@ -48,18 +56,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link  text-light" asp-controller="Auth" asp-action="Register">Register</a>
-                    </li>
-                }
-                @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin" || User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "sub-admin")
-                {
-                    if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin")
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link  text-light" asp-controller="User" asp-action="ManageUsers">Manage users</a>
-                        </li>
-                    }
-                    <li class="nav-item">
-                        <a class="nav-link  text-light" asp-controller="Home" asp-action="MoviesForApproval">Approve movies</a>
                     </li>
                 }
             </ul>

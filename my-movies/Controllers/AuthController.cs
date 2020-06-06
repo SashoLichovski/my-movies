@@ -29,6 +29,7 @@ namespace my_movies.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(UserModel user)
         {
+            ViewBag.header = "Sign in";
             if (ModelState.IsValid)
             {
                 var converted = ConvertModel.ConvertToUser(user);
@@ -37,7 +38,7 @@ namespace my_movies.Controllers
                 {
                     return RedirectToAction("HomePage", "Home");
                 }
-                ModelState.AddModelError(string.Empty, "Inccorect Username or Password");
+                ModelState.AddModelError("Username", "Inccorect Username or Password");
                 return View();
             }
             return View(user);

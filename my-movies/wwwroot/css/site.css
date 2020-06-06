@@ -6,8 +6,17 @@
     text-align: center;
     margin-bottom: 20px;
 }
-.approveBtnContainer{
-    width:100%;
+.dropdown-menu{
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+.dropdown-item{
+    color: whitesmoke;
+}
+.dropdown-item:hover{
+    color: black !important;
+}
+.approveBtnContainer {
+    width: 100%;
     display: grid;
     margin-top: 10px;
 }
@@ -19,13 +28,15 @@
     height: 50px;
     overflow: hidden;
 }
+.cardBtn{
+    margin-top: 12px;
+}
 .homeContainer {
     width: 95%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
-
 .cardCustom {
     margin: 10px
 }

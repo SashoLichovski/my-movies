@@ -6,12 +6,12 @@
 }
 
 
-<form class="formContainer" asp-controller="Auth" asp-action="SignIn">
-    <input placeholder="Username" asp-for="Username" class="form-control" />
-
-    <input placeholder="Password" asp-for="Password" class="form-control" />
-
-    <input class="btn btn-dark text-light" value="Sign in" type="submit">
-</form>
-<div asp-validation-summary="All" class="text-danger" style="position: absolute;"></div>
+    <form class="formContainer" asp-controller="Auth" asp-action="SignIn">
+        <input placeholder="Username" asp-for="Username" class="form-control" />
+        <input placeholder="Password" asp-for="Password" class="form-control" />
+        <br />
+        <span asp-validation-for="Username" class="text-danger"></span>
+        <br />
+        <input class="btn btn-dark text-light" value="Sign in" type="submit">
+    </form>
 
