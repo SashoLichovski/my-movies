@@ -12,5 +12,8 @@ namespace my_movies.Repository.Interfaces
         User GetUserById(int id);
         void UpdateUsername(User user);
         void UpdatePassword(User user);
+        List<User> GetAll();
+        void UpdateRole(User user);
+        void RemoveUser(User user);
     }
 }

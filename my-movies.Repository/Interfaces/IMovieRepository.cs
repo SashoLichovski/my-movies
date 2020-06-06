@@ -14,5 +14,6 @@ namespace my_movies.Repository.Interfaces
         void Remove(int id);
         Movie GetById(int id);
         void UpdateMovie(Movie movie);
+        List<Movie> GetAllForApprove();
     }
 }

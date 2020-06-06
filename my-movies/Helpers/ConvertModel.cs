@@ -16,7 +16,8 @@ namespace my_movies.Helpers
                 Id = movie.Id,
                 Title = movie.Title,
                 Description = movie.Description,
-                ImageUrl = movie.ImageUrl
+                ImageUrl = movie.ImageUrl,
+                IsApproved = movie.IsApproved
             };
             return model;
         }
@@ -73,12 +74,30 @@ namespace my_movies.Helpers
             };
             return model;
         }
+
+        internal static Movie ToMovieForDb(CreateMovieModel createdMovie)
+        {
+            var model = new Movie()
+            {
+                Title = createdMovie.Title,
+                Description = createdMovie.Description,
+                ImageUrl = createdMovie.ImageUrl,
+                Genre = createdMovie.Genre,
+                Cast = createdMovie.Cast,
+                Duration = createdMovie.Duration,
+                Views = 0,
+                DateCreated = new DateTime()
+            };
+            return model;
+        }
+
         public static ModifyMoviesModel ConvertToModifyMoviesModel(Movie movie)
         {
             var model = new ModifyMoviesModel()
             {
                 Id = movie.Id,
-                Title = movie.Title
+                Title = movie.Title,
+                IsApproved = movie.IsApproved
             };
             return model;
         }
@@ -141,6 +160,43 @@ namespace my_movies.Helpers
                 Password = user.Password
             };
             return currentUser;
+        }
+        public static ManageUsersModel ToManageUsersModel(User user)
+        {
+            var model = new ManageUsersModel()
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Role = user.Role
+            };
+            return model;
+        }
+        public static Movie ToMovieModel(CreateMovieModel createdMovie)
+        {
+            var model = new Movie()
+            {
+                Title = createdMovie.Title,
+                Description = createdMovie.Description,
+                ImageUrl = createdMovie.ImageUrl,
+                Cast = createdMovie.Cast,
+                Genre = createdMovie.Genre,
+                Duration = createdMovie.Duration,
+                Views = 0,
+                DateCreated = DateTime.Now
+            };
+            return model;
+        }
+        public static ApproveMovieModel ToApproveMovieModel(Movie movie)
+        {
+            var model = new ApproveMovieModel()
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Description = movie.Description,
+                ImageUrl = movie.ImageUrl,
+                IsApproved = movie.IsApproved
+            };
+            return model;
         }
     }
 }

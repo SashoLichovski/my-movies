@@ -20,6 +20,15 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" asp-controller="Home" asp-action="HomePage">Home <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item dropdown  text-light">
+                    <a class="nav-link dropdown-toggle  text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        About Us
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Our story</a>
+                        <a class="dropdown-item" href="#">Contact us</a>
+                    </div>
+                </li>
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li class="nav-item">
@@ -41,15 +50,18 @@
                         <a class="nav-link  text-light" asp-controller="Auth" asp-action="Register">Register</a>
                     </li>
                 }
-                <li class="nav-item dropdown  text-light">
-                    <a class="nav-link dropdown-toggle  text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        About Us
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Our story</a>
-                        <a class="dropdown-item" href="#">Contact us</a>
-                    </div>
-                </li>
+                @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin" || User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "sub-admin")
+                {
+                    if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link  text-light" asp-controller="User" asp-action="ManageUsers">Manage users</a>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link  text-light" asp-controller="Home" asp-action="MoviesForApproval">Approve movies</a>
+                    </li>
+                }
             </ul>
             <form class="form-inline my-2 my-lg-0" asp-controller="Home" asp-action="HomePage">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
@@ -57,6 +69,11 @@
             </form>
         </div>
     </nav>
+
+    <div id="layoutHeader">
+        <h2>@ViewBag.header</h2>
+    </div>
+
     <div>
         @RenderBody()
     </div>
@@ -70,5 +87,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="~/js/site.js"></script>
 </body>
 </html>

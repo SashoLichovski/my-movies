@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -18,10 +19,30 @@
             {
                 <tr>
                     <td>@movie.Title</td>
-                    <td>
-                        <a asp-controller="Home" asp-action="EditMovie" asp-route-id="@movie.Id">Edit</a> | 
-                        <a asp-controller="Home" asp-action="DeleteMovie" asp-route-id="@movie.Id">Delete</a>
-                    </td>
+                    @if (movie.IsApproved)
+                    {
+                        <td>Approved</td>
+                    }
+                    else
+                    {
+                        <td>Pending for approval</td>
+                    }
+                    @if (User.FindFirst("Role").Value == "admin" || User.FindFirst("Role").Value == "sub-admin")
+                    {
+                        <td>
+                            <a asp-controller="Home" asp-action="EditMovie" asp-route-id="@movie.Id">Edit</a>
+                            @if (User.FindFirst("Role").Value == "admin")
+                            {
+                                <span> | </span><a asp-controller="Home" asp-action="DeleteMovie" asp-route-id="@movie.Id">Delete</a>
+                            }
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <span>Not allowed</span>
+                        </td>
+                    }
                 </tr>
             }
         </tbody>

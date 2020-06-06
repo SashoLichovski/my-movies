@@ -56,5 +56,10 @@ namespace my_movies.Repository
             Context.Movies.Update(movie);
             Context.SaveChanges();
         }
+
+        public List<Movie> GetAllForApprove()
+        {
+            return Context.Movies.Where(x => x.IsApproved == false).ToList();
+        }
     }
 }

@@ -1,0 +1,45 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<my_movies.ViewModels.ManageUsersModel>
+@{
+    Layout = "_Layout";
+}
+
+
+<div class="container">
+    @*<a class="btn btn-dark text-light" style="margin: 20px" asp-controller="Home" asp-action="CreateMovie">Add movie</a>*@
+    <h3 style="padding: 30px">Manage users</h3>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Actions</th>
+                <th>Current role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                if (user.Role == "admin")
+                {
+                    <tr>
+                        <th>@user.Username</th>
+                        <th>Admin</th>
+                        <th>Admin</th>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>@user.Username</td>
+                        <td>
+                            <a asp-controller="User" asp-action="AddSubAdmin" asp-route-id="@user.Id">Make sub-admin</a> |
+                            <a asp-controller="User" asp-action="DeleteUser" asp-route-id="@user.Id">Delete</a>
+                            <div asp-validation-summary="ModelOnly"></div>
+                        </td>
+                        <td>@user.Role</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

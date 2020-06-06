@@ -49,5 +49,21 @@ namespace my_movies.Service
         {
             MovieRepo.UpdateMovie(movie);
         }
+
+        public void AddForApproval(Movie movie)
+        {
+            MovieRepo.Add(movie);
+        }
+
+        public List<Movie> GetAllForApprove()
+        {
+            return MovieRepo.GetAllForApprove();
+        }
+
+        public void ApproveMovie(Movie movie)
+        {
+            movie.IsApproved = true;
+            MovieRepo.UpdateMovie(movie);
+        }
     }
 }

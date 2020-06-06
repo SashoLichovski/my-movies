@@ -4,29 +4,23 @@
     Layout = "_Layout";
 }
 
-<style>
-    .homeContainer {
-        width: 80%;
-        margin: auto;
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .cardCustom {
-        margin: 10px
-    }
-</style>
-
 <div class="homeContainer">
     @foreach (var movie in Model)
     {
-        <div class="card cardCustom" style="width: 16rem;">
-            <img src="@movie.ImageUrl" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">@movie.Title</h5>
-                <p class="card-text">@movie.Description</p>
-                <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id" class="btn btn-primary">See more</a>
+        if (movie.IsApproved)
+        {
+            <div class="card cardCustom" style="width: 13rem;">
+                <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@movie.Title</h5>
+                    <div class="cardText">
+                        <p class="card-text">@movie.Description</p>...
+                    </div>
+                    <div class="cardBtn">
+                        <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id" class="btn-sm btn-primary">See more</a>
+                    </div>
+                </div>
             </div>
-        </div>
+        }
     }
 </div>

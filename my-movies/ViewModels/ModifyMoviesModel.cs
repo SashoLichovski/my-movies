@@ -9,6 +9,6 @@ namespace my_movies.ViewModels
     {
         public int Id { get; set; }
         public string Title { get; set; }
-
+        public bool IsApproved { get; set; }
     }
 }

@@ -1,4 +1,36 @@
-﻿.formContainer input {
+﻿#layoutHeader{
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.approveBtnContainer{
+    width:100%;
+    display: grid;
+    margin-top: 10px;
+}
+.approveBtnContainer a {
+    margin-bottom: 5px;
+    text-align: center;
+}
+.cardText{
+    height: 50px;
+    overflow: hidden;
+}
+.homeContainer {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cardCustom {
+    margin: 10px
+}
+
+.formContainer input {
     width: 30%;
     margin: auto;
     margin-top: 20px;
@@ -9,6 +41,7 @@
     margin: auto;
     text-align: center;
 }
+
 .registerMessageContainer{
     width: 80%;
     margin: auto;

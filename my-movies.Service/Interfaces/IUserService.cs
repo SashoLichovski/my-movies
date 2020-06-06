@@ -10,5 +10,8 @@ namespace my_movies.Service.Interfaces
         User GetCurrentUser(int id);
         bool UpdateUsername(User user, string newUsername);
         void UpdatePassword(User user, string newPassword);
+        List<User> GetAll();
+        bool UpdateRole(User user);
+        void RemoveUser(User user);
     }
 }

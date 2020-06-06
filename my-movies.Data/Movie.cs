@@ -23,5 +23,6 @@ namespace my_movies.Data
         public string Duration { get; set; }
         public DateTime DateCreated { get; set; }
         public int Views { get; set; }
+        public bool IsApproved { get; set; }
     }
 }

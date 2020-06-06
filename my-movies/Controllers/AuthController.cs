@@ -22,6 +22,7 @@ namespace my_movies.Controllers
 
         public IActionResult SignIn()
         {
+            ViewBag.header = "Sign in";
             var user = new UserModel();
             return View(user);
         }
@@ -48,6 +49,7 @@ namespace my_movies.Controllers
         }
         public IActionResult Register()
         {
+            ViewBag.header = "Register";
             var newUser = new RegisterUserModel();
             return View(newUser);
         }
@@ -74,6 +76,7 @@ namespace my_movies.Controllers
 
         public IActionResult SuccessfulRegister()
         {
+            ViewBag.header = "Congratulations";
             return View();
         }
     }

@@ -14,5 +14,8 @@ namespace my_movies.Service.Interfaces
         void Remove(int id);
         Movie GetById(int id);
         void Update(Movie movie);
+        void AddForApproval(Movie movie);
+        List<Movie> GetAllForApprove();
+        void ApproveMovie(Movie movie);
     }
 }

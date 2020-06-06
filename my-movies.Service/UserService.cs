@@ -14,12 +14,10 @@ namespace my_movies.Service
         {
             UserRepo = userRepo;
         }
-
         public User GetCurrentUser(int id)
         {
             return UserRepo.GetUserById(id);
         }
-
         public bool UpdateUsername(User user, string newUsername)
         {
             var checkUsername = UserRepo.GetUserByUsername(newUsername);
@@ -34,11 +32,32 @@ namespace my_movies.Service
                 return false;
             }
         }
-
         public void UpdatePassword(User user, string newPassword)
         {
             user.Password = newPassword;
             UserRepo.UpdatePassword(user);
+        }
+
+        public List<User> GetAll()
+        {
+            return UserRepo.GetAll();
+        }
+        public bool UpdateRole(User user)
+        {
+            if (user.Role == "user")
+            {
+                user.Role = "sub-admin";
+                UserRepo.UpdateRole(user);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public void RemoveUser(User user)
+        {
+            UserRepo.RemoveUser(user);
         }
     }
 }

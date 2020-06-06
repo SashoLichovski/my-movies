@@ -23,6 +23,7 @@ namespace my_movies.Controllers
         [AllowAnonymous]
         public IActionResult HomePage(string search)
         {
+            ViewBag.header = "All movies";
             var allMovies = MovieService.GetAll();
             var converted = new List<HomePageModel>();
             if (search != null)
@@ -46,11 +47,13 @@ namespace my_movies.Controllers
         {
             var movie = MovieService.MovieDetailsById(id);
             var converted = ConvertModel.ConvertMovieDetailsModel(movie);
+            ViewBag.header = "Movie details";
             return View(converted);
         }
 
         public IActionResult CreateMovie()
         {
+            ViewBag.header = "Create new movie";
             var newMovie = new CreateMovieModel();
             return View(newMovie);
         }
@@ -59,14 +62,37 @@ namespace my_movies.Controllers
         {
             if (ModelState.IsValid)
             {
-                MovieService.AddMovie(ConvertModel.ConvertToMovieModel(createdMovie));
-                return RedirectToAction("HomePage");
+                var movie = ConvertModel.ToMovieModel(createdMovie);
+                MovieService.AddForApproval(movie);
+                return RedirectToAction("ApprovalMessage");
             }
             return View(createdMovie);
         }
-
+        public IActionResult ApprovalMessage()
+        {
+            ViewBag.header = "Success";
+            return View();
+        }
+        public IActionResult MoviesForApproval()
+        {
+            ViewBag.header = "Approve movies";
+            var movies = MovieService.GetAllForApprove();
+            var converted = new List<ApproveMovieModel>();
+            foreach (var movie in movies)
+            {
+                converted.Add(ConvertModel.ToApproveMovieModel(movie));
+            }
+            return View(converted);
+        }
+        public IActionResult ApproveMovie(int id)
+        {
+            var movie = MovieService.GetById(id);
+            MovieService.ApproveMovie(movie);
+            return RedirectToAction("HomePage");
+        }
         public IActionResult ModifyMovies()
         {
+            ViewBag.header = "Modify movies";
             var allMovies = MovieService.GetAll();
             var converted = new List<ModifyMoviesModel>();
             allMovies.ForEach(x => converted.Add(ConvertModel.ConvertToModifyMoviesModel(x)));
@@ -96,5 +122,6 @@ namespace my_movies.Controllers
             }
             return View(model);
         }
+        
     }
 }

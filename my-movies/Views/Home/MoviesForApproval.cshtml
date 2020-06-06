@@ -1,0 +1,32 @@
+﻿@model List<my_movies.ViewModels.ApproveMovieModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+
+<div class="homeContainer">
+    @foreach (var movie in Model)
+    {
+        if (!movie.IsApproved)
+        {
+            <div class="card cardCustom" style="width: 13rem;">
+                <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@movie.Title</h5>
+                    <div class="cardText">
+                        <p class="card-text">@movie.Description</p>...
+                    </div>
+                    <div class="approveBtnContainer">
+                        <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id" class="btn-sm btn-primary">See more</a>
+                        <a asp-controller="Home" asp-action="ApproveMovie" asp-route-id="@movie.Id" class="btn-sm btn-dark">Approve</a>
+                        @if (User.FindFirst("Role").Value == "admin")
+                        {
+                            <a asp-controller="Home" asp-action="DeleteMovie" asp-route-id="@movie.Id" class="btn-sm btn-dark">Remove</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

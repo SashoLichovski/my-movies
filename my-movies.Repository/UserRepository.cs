@@ -43,5 +43,22 @@ namespace my_movies.Repository
             Context.Users.Update(user);
             Context.SaveChanges();
         }
+
+        public List<User> GetAll()
+        {
+            return Context.Users.ToList();
+        }
+
+        public void UpdateRole(User user)
+        {
+            Context.Users.Update(user);
+            Context.SaveChanges();
+        }
+
+        public void RemoveUser(User user)
+        {
+            Context.Users.Remove(user);
+            Context.SaveChanges();
+        }
     }
 }

@@ -29,7 +29,8 @@ namespace my_movies.Service
                 {
                     new Claim(ClaimTypes.NameIdentifier, iUser.Username),
                     new Claim(ClaimTypes.Name, iUser.Username),
-                    new Claim("Id", iUser.Id.ToString())
+                    new Claim("Id", iUser.Id.ToString()),
+                    new Claim("Role", iUser.Role)
                 };
                 var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var principal = new ClaimsPrincipal(identity);
@@ -51,6 +52,7 @@ namespace my_movies.Service
             var newUser = UserRepo.GetUserByUsername(user.Username);
             if (newUser == null)
             {
+                user.Role = "user";
                 UserRepo.Add(user);
                 return true;
             }
