@@ -142,6 +142,14 @@ namespace my_movies.Helpers
             };
             return user;
         }
+        public static User ConvertToUser(ChangeUsernameModel model)
+        {
+            var user = new User()
+            {
+                Id = model.Id
+            };
+            return user;
+        }
         public static User ConvertToUser(RegisterUserModel model)
         {
             var user = new User()

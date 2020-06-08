@@ -27,6 +27,7 @@ namespace my_movies.Controllers
         }
         public IActionResult ChangeUsername(int id)
         {
+            ViewBag.header = "Enter your new username";
             var user = UserService.GetCurrentUser(id);
             var converted = ConvertModel.ToChangeUsernameModel(user);
             return View(converted);
@@ -37,9 +38,8 @@ namespace my_movies.Controllers
             ViewBag.header = "Enter your new username";
             if (ModelState.IsValid)
             {
-                var user = UserService.GetCurrentUser(model.Id);
-                var newUsername = model.Username;
-                var status = UserService.UpdateUsername(user, newUsername);
+                var user = ConvertModel.ConvertToUser(model);
+                var status = UserService.UpdateUsername(user, model.Username);
                 if (status)
                 {
                     return RedirectToAction("UserDetails", "User");
@@ -62,6 +62,7 @@ namespace my_movies.Controllers
         [HttpPost]
         public IActionResult ChangePassword(ChangePasswordModel model)
         {
+            ViewBag.header = "Enter your new password";
             if (ModelState.IsValid)
             {
                 var user = UserService.GetCurrentUser(model.Id);

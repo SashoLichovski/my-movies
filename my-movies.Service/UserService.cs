@@ -20,11 +20,12 @@ namespace my_movies.Service
         }
         public bool UpdateUsername(User user, string newUsername)
         {
+            var iUser = UserRepo.GetUserById(user.Id);
             var checkUsername = UserRepo.GetUserByUsername(newUsername);
             if (checkUsername == null)
             {
-                user.Username = newUsername;
-                UserRepo.UpdateUsername(user);
+                iUser.Username = newUsername;
+                UserRepo.UpdateUser(iUser);
                 return true;
             }
             else
@@ -35,7 +36,7 @@ namespace my_movies.Service
         public void UpdatePassword(User user, string newPassword)
         {
             user.Password = newPassword;
-            UserRepo.UpdatePassword(user);
+            UserRepo.UpdateUser(user);
         }
 
         public List<User> GetAll()
@@ -47,7 +48,7 @@ namespace my_movies.Service
             if (user.Role == "user")
             {
                 user.Role = "sub-admin";
-                UserRepo.UpdateRole(user);
+                UserRepo.UpdateUser(user);
                 return true;
             }
             else

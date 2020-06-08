@@ -22,7 +22,9 @@ namespace my_movies.Service
 
         public Movie MovieDetailsById(int id)
         {
-            return MovieRepo.MovieDetailsById(id);
+            var movie = MovieRepo.MovieDetailsById(id);
+            movie.Views++;
+            return movie;
         }
 
         public List<Movie> SearchMovies(string search)

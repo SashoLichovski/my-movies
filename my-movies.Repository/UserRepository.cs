@@ -32,24 +32,30 @@ namespace my_movies.Repository
             return Context.Users.FirstOrDefault(x => x.Id == id);
         }
 
-        public void UpdateUsername(User user)
-        {
-            Context.Users.Update(user);
-            Context.SaveChanges();
-        }
+        //public void UpdateUsername(User user)
+        //{
+        //    Context.Users.Update(user);
+        //    Context.SaveChanges();
+        //}
 
-        public void UpdatePassword(User user)
-        {
-            Context.Users.Update(user);
-            Context.SaveChanges();
-        }
+        //public void UpdatePassword(User user)
+        //{
+        //    Context.Users.Update(user);
+        //    Context.SaveChanges();
+        //}
 
         public List<User> GetAll()
         {
             return Context.Users.ToList();
         }
 
-        public void UpdateRole(User user)
+        //public void UpdateRole(User user)
+        //{
+        //    Context.Users.Update(user);
+        //    Context.SaveChanges();
+        //}
+
+        public void UpdateUser(User user)
         {
             Context.Users.Update(user);
             Context.SaveChanges();

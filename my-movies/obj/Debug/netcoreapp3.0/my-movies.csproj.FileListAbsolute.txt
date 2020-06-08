@@ -213,6 +213,7 @@ C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Vie
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\HomePage.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\ModifyMovies.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\MovieDetails.cshtml.g.cs
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\MoviesForApproval.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\User\ChangePassword.cshtml.g.cs
@@ -225,4 +226,3 @@ C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.csproj.CopyComplete
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.dll
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.pdb
-C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\MoviesForApproval.cshtml.g.cs

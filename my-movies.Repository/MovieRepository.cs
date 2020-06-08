@@ -22,10 +22,7 @@ namespace my_movies.Repository
 
         public Movie MovieDetailsById(int id)
         {
-            var movie =  Context.Movies.FirstOrDefault(x => x.Id == id);
-            movie.Views++;
-            Context.SaveChanges();
-            return movie;
+            return Context.Movies.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Movie> SearchMovies(string search)
