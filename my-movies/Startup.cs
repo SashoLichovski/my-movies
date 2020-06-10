@@ -43,6 +43,9 @@ namespace my_movies
                 options.LoginPath = "/auth/signin";
                 });
 
+            services.AddAuthorization(options =>
+                options.AddPolicy("Role", options => options.RequireClaim("Role", "admin", "sub-admin")));
+
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<IMovieRepository, MovieRepository>();
             services.AddTransient<IUserRepository, UserRepository>();

@@ -35,7 +35,7 @@ namespace my_movies.Service
         }
         public void UpdatePassword(User user, string newPassword)
         {
-            user.Password = newPassword;
+            user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
             UserRepo.UpdateUser(user);
         }
 

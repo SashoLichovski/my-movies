@@ -66,14 +66,13 @@ namespace my_movies.Controllers
             if (ModelState.IsValid)
             {
                 var user = UserService.GetCurrentUser(model.Id);
-                if (user.Password != model.OldPassword)
+                if (BCrypt.Net.BCrypt.Verify(model.OldPassword, user.Password))
                 {
-                    ModelState.AddModelError(string.Empty, "Old password does not match");
-                    return View(model);
+                    UserService.UpdatePassword(user, model.Password);
+                    return RedirectToAction("UserDetails", "User");
                 }
-                var newPassword = model.Password;
-                UserService.UpdatePassword(user, newPassword);
-                return RedirectToAction("UserDetails", "User");
+                ModelState.AddModelError(string.Empty, "Old password does not match");
+                return View(model);
             }
             return View(model);
         }

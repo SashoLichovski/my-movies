@@ -1,4 +1,5 @@
-﻿using my_movies.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using my_movies.Data;
 using my_movies.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,10 @@ namespace my_movies.Repository
 
         public Movie MovieDetailsById(int id)
         {
-            return Context.Movies.FirstOrDefault(x => x.Id == id);
+            return Context.Movies
+                .Include(x => x.MovieComments)
+                .ThenInclude(x => x.User)
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public List<Movie> SearchMovies(string search)

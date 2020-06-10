@@ -3,45 +3,89 @@
 @{
     Layout = "_Layout";
 }
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" style="display: flex; justify-content: center;">
-                <img src="@Model[0].ImageUrl" class="d-block w-25" alt="...">
-            </div>
-            <div class="carousel-item" style="display: flex; justify-content: center;">
-                <img src="@Model[2].ImageUrl" class="d-block w-25" alt="...">
-            </div>
-            <div class="carousel-item" style="display: flex; justify-content: center;">
-                <img src="@Model[3].ImageUrl" class="d-block w-25" alt="...">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-<div class="homeContainer">
+<style>
+    h3{
+        padding: 10px 5px;
+        /*color: white;*/
+    }
+</style>
+    <h3>All genres</h3>
+<div class="multiple-items">
     @foreach (var movie in Model)
     {
-        if (movie.IsApproved)
-        {
-            <div class="card cardCustom" style="width: 13rem;">
+        <div class="imgContainer hvr-float-shadow">
+            <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
                 <img src="@movie.ImageUrl" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">@movie.Title</h5>
-                    <div class="cardText">
-                        <p class="card-text">@movie.Description</p>...
-                    </div>
-                    <div class="cardBtn">
-                        <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id" class="btn-sm btn-primary">See more</a>
-                    </div>
-                </div>
+            </a>
+        </div>
+    }
+</div>
+<br />
+
+    <h3>Drama</h3>
+<div class="multiple-items">
+    @foreach (var movie in Model)
+    {
+        if (movie.Genre.Contains("Drama"))
+        {
+            <div class="imgContainer hvr-float-shadow">
+                <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                    <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                </a>
             </div>
         }
     }
 </div>
+<br />
+
+    <h3>Action</h3>
+<div class="multiple-items">
+    @foreach (var movie in Model)
+    {
+        if (movie.Genre.Contains("Action"))
+        {
+            <div class="imgContainer hvr-float-shadow">
+                <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                    <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                </a>
+            </div>
+        }
+    }
+</div>
+<br />
+
+    <h3>Crime</h3>
+<div class="multiple-items">
+    @foreach (var movie in Model)
+    {
+        if (movie.Genre.Contains("Crime"))
+        {
+            <div class="imgContainer hvr-float-shadow">
+                <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                    <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                </a>
+            </div>
+        }
+    }
+</div>
+
+@*<div class="homeContainer">
+        @foreach (var movie in Model)
+        {
+            if (movie.IsApproved)
+            {
+                <div class="card cardCustom" style="width: 13rem;">
+                    <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@movie.Title</h5>
+                        <div class="cardText">
+                            <p class="card-text">@movie.Description</p>...
+                        </div>
+                        <div class="cardBtn">
+                            <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id" class="btn-sm btn-primary">See more</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>*@

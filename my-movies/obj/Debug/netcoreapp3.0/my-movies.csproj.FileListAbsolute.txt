@@ -226,3 +226,4 @@ C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.csproj.CopyComplete
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.dll
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.pdb
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\BCrypt.Net-Next.dll

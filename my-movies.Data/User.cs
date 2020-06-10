@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace my_movies.Data
 {
@@ -12,5 +13,6 @@ namespace my_movies.Data
         public string Password { get; set; }
         public string Role { get; set; }
 
+        public List<MovieComment> Comments { get; set; }
     }
 }

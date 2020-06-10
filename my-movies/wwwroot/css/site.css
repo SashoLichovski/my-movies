@@ -1,4 +1,24 @@
-﻿#layoutHeader{
+﻿/*body{
+    background-color: black;
+    color: whitesmoke;
+}
+table{
+    color: whitesmoke !important;
+}
+tr:hover{
+    background-color:aliceblue;
+    color: black;
+}*/
+#movieDetailsImageContainer{
+    width: inherit;
+}
+#movieDetailsImageContainer img{
+    height: 100%;
+}
+#movieDetailsInfoContainer{
+    text-align: end;
+}
+#layoutHeader {
     width: 40%;
     margin: auto;
     padding: 20px;
@@ -40,19 +60,16 @@
 .cardCustom {
     margin: 10px
 }
-
 .formContainer input {
     width: 30%;
     margin: auto;
     margin-top: 20px;
 }
-
 .formContainer {
     width: 90%;
     margin: auto;
     text-align: center;
 }
-
 .registerMessageContainer{
     width: 80%;
     margin: auto;
@@ -60,6 +77,23 @@
 }
 .userDetailsContainer{
     padding: 20px;
+}
+.slickImgs{
+    width: 100px;
+}
+.autoplay{
+    width: 100%;
+    height: 300px;
+}
+.imgContainer{
+    /*width: 200px !important;*/
+    height: auto !important;
+    margin: 20px;
+    text-align: center;
+}
+.multiple-items {
+    width: 90% !important;
+    margin: auto !important;
 }
 /* Sticky footer styles
 -------------------------------------------------- */

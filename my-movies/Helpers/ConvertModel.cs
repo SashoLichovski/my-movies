@@ -17,9 +17,19 @@ namespace my_movies.Helpers
                 Title = movie.Title,
                 Description = movie.Description,
                 ImageUrl = movie.ImageUrl,
-                IsApproved = movie.IsApproved
+                IsApproved = movie.IsApproved,
+                Genre = movie.Genre
             };
             return model;
+        }
+        public static MovieCommentModel ToMovieCommentModel(MovieComment movieComment)
+        {
+            return new MovieCommentModel()
+            {
+                Comment = movieComment.Comment,
+                Username = movieComment.User.Username,
+                DateCreated = movieComment.DateCreated
+            };
         }
         public static MovieDetailsModel ConvertMovieDetailsModel(Movie movie)
         {
@@ -32,11 +42,11 @@ namespace my_movies.Helpers
                 Genre = movie.Genre,
                 DateCreated = movie.DateCreated,
                 Duration = movie.Duration,
-                Views = movie.Views
+                Views = movie.Views,
+                Comments = movie.MovieComments.Select(x => ToMovieCommentModel(x)).ToList()
             };
             return model;
         }
-
         public static ChangeUsernameModel ToChangeUsernameModel(User user)
         {
             var model = new ChangeUsernameModel()
@@ -47,7 +57,6 @@ namespace my_movies.Helpers
             };
             return model;
         }
-
         public static ChangePasswordModel ToChangePasswordModel(User user)
         {
             var model = new ChangePasswordModel()
@@ -58,7 +67,6 @@ namespace my_movies.Helpers
             };
             return model;
         }
-
         public static Movie ConvertToMovieModel(CreateMovieModel movieModel)
         {
             var model = new Movie()
@@ -74,7 +82,6 @@ namespace my_movies.Helpers
             };
             return model;
         }
-
         internal static Movie ToMovieForDb(CreateMovieModel createdMovie)
         {
             var model = new Movie()
@@ -90,7 +97,6 @@ namespace my_movies.Helpers
             };
             return model;
         }
-
         public static ModifyMoviesModel ConvertToModifyMoviesModel(Movie movie)
         {
             var model = new ModifyMoviesModel()

@@ -98,15 +98,16 @@ namespace my_movies.Controllers
             allMovies.ForEach(x => converted.Add(ConvertModel.ConvertToModifyMoviesModel(x)));
             return View(converted);
         }
-
+        [Authorize(Policy = "Role")]
         public IActionResult DeleteMovie(int id)
         {
             MovieService.Remove(id);
             return RedirectToAction("ModifyMovies");
         }
-
+        [Authorize(Policy = "Role")]
         public IActionResult EditMovie(int id)
         {
+            ViewBag.header = "Edit movie";
             var movie = MovieService.GetById(id);
             var converted = ConvertModel.ConvertToEditMovieModel(movie);
             return View(converted);
