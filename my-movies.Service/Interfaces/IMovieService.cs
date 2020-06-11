@@ -1,4 +1,5 @@
 ﻿using my_movies.Data;
+using my_movies.Service.DTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,5 +18,6 @@ namespace my_movies.Service.Interfaces
         void AddForApproval(Movie movie);
         List<Movie> GetAllForApprove();
         void ApproveMovie(Movie movie);
+        SidebarData SidebarData();
     }
 }

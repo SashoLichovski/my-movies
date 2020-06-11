@@ -79,6 +79,7 @@ C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\my-movies
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\my-movies.pdb
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\my-movies.Views.dll
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\my-movies.Views.pdb
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\BCrypt.Net-Next.dll
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\Microsoft.Bcl.HashCode.dll
@@ -214,6 +215,7 @@ C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Vie
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\ModifyMovies.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\MovieDetails.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Home\MoviesForApproval.cshtml.g.cs
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Shared\SidebarPartial.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\User\ChangePassword.cshtml.g.cs
@@ -226,4 +228,3 @@ C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.csproj.CopyComplete
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.dll
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.pdb
-C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\BCrypt.Net-Next.dll

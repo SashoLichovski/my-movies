@@ -18,7 +18,9 @@ namespace my_movies.Repository
 
         public List<Movie> GetAll()
         {
-            return Context.Movies.ToList();
+            return Context.Movies
+                .Include(x => x.MovieComments)
+                .ToList();
         }
 
         public Movie MovieDetailsById(int id)

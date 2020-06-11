@@ -25,6 +25,7 @@ namespace my_movies.Controllers
         {
             ViewBag.header = "All movies";
             var allMovies = MovieService.GetAll();
+            var homePageData = new HomePageDataModel();
             var converted = new List<HomePageModel>();
             if (search != null)
             {
@@ -39,14 +40,18 @@ namespace my_movies.Controllers
                     converted.Add(ConvertModel.ConvertHomePageModel(movie));
                 }
             }
-
-            return View(converted);
+            var sidebarData = MovieService.SidebarData();
+            homePageData.Movies = converted;
+            homePageData.SidebarData = sidebarData;
+            return View(homePageData);
         }
         [AllowAnonymous]
         public IActionResult MovieDetails(int id)
         {
             var movie = MovieService.MovieDetailsById(id);
+            var sidebarData = MovieService.SidebarData();
             var converted = ConvertModel.ConvertMovieDetailsModel(movie);
+            converted.SidebarData = sidebarData;
             ViewBag.header = "Movie details";
             return View(converted);
         }

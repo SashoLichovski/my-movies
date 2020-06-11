@@ -1,34 +1,29 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model List<my_movies.ViewModels.HomePageModel>
+@model my_movies.ViewModels.HomePageDataModel
 @{
     Layout = "_Layout";
 }
+
+@*Sidebar*@
+    <div>
+        <partial name="SidebarPartial" for="SidebarData"/>
+    </div>
+@*Sidebar*@
+
 <style>
-    h3{
+    h3 {
         width: 100%;
         text-align: center;
     }
 </style>
-    <h3>All genres</h3>
+<h3>All genres</h3>
 <div class="multiple-items">
-    @foreach (var movie in Model)
-    {
-        <div class="imgContainer hvr-grow">
-            <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
-                <img src="@movie.ImageUrl" class="card-img-top" alt="...">
-            </a>
-        </div>
-    }
-</div>
-<br />
 
-    <h3>Drama</h3>
-<div class="multiple-items">
-    @foreach (var movie in Model)
+    @foreach (var movie in Model.Movies)
     {
-        if (movie.Genre.Contains("Drama"))
+        if (movie.IsApproved)
         {
-            <div class="imgContainer hvr-float-shadow">
+            <div class="imgContainer hvr-grow">
                 <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
                     <img src="@movie.ImageUrl" class="card-img-top" alt="...">
                 </a>
@@ -38,33 +33,58 @@
 </div>
 <br />
 
-    <h3>Action</h3>
+<h3>Drama</h3>
 <div class="multiple-items">
-    @foreach (var movie in Model)
+    @foreach (var movie in Model.Movies)
     {
-        if (movie.Genre.Contains("Action"))
+        if (movie.IsApproved)
         {
-            <div class="imgContainer hvr-float-shadow">
-                <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
-                    <img src="@movie.ImageUrl" class="card-img-top" alt="...">
-                </a>
-            </div>
+            if (movie.Genre.Contains("Drama"))
+            {
+                <div class="imgContainer hvr-float-shadow">
+                    <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                        <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                    </a>
+                </div>
+            }
         }
     }
 </div>
 <br />
 
-    <h3>Crime</h3>
+<h3>Action</h3>
 <div class="multiple-items">
-    @foreach (var movie in Model)
+    @foreach (var movie in Model.Movies)
     {
-        if (movie.Genre.Contains("Crime"))
+        if (movie.IsApproved)
         {
-            <div class="imgContainer hvr-float-shadow">
-                <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
-                    <img src="@movie.ImageUrl" class="card-img-top" alt="...">
-                </a>
-            </div>
+            if (movie.Genre.Contains("Action"))
+            {
+                <div class="imgContainer hvr-float-shadow">
+                    <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                        <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                    </a>
+                </div>
+            }
+        }
+    }
+</div>
+<br />
+
+<h3>Crime</h3>
+<div class="multiple-items">
+    @foreach (var movie in Model.Movies)
+    {
+        if (movie.IsApproved)
+        {
+            if (movie.Genre.Contains("Crime"))
+            {
+                <div class="imgContainer hvr-float-shadow">
+                    <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
+                        <img src="@movie.ImageUrl" class="card-img-top" alt="...">
+                    </a>
+                </div>
+            }
         }
     }
 </div>

@@ -1,4 +1,5 @@
 ﻿
+// Slider lib use
 $(document).ready(function () {
     $('.multiple-items').slick({
         infinite: true,
@@ -34,3 +35,27 @@ $(document).ready(function () {
         ]
     });
 })
+
+// Toggle sidebar
+var sidebar = document.getElementById("sidebar");
+sidebar.style.left = "-300px";
+function ToggleSidebar() {
+    if (sidebar.style.left == "-300px") {
+        sidebar.style.left = "0px";
+    } else if (sidebar.style.left == "0px") {
+        sidebar.style.left = "-300px";
+    }
+    console.log(sidebar.style.left.toString());
+}
+
+// Ratings with stars
+function Rate(event) {
+    console.log(event.target.id);
+    var heart = document.getElementById(event.target.id);
+    console.log(heart.previousSibling);
+    var container = document.getElementById("heartContainer");
+    console.log(container.children);
+    for (var i = 0; i < event.target.id; i++) {
+        container.children[i].style.color = "red";
+    }
+}

@@ -21,5 +21,10 @@ namespace my_movies.Controllers
             CommentService.Add(comment, movieId, userId);
             return RedirectToAction("MovieDetails", "Home", new { Id = movieId });
         }
+
+        public IActionResult RateMovie(int id)
+        {
+            return RedirectToAction("MovieDetails","Home", new { Id = id });
+        }
     }
 }

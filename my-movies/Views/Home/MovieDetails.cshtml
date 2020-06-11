@@ -11,7 +11,13 @@
     }
 }
 
-<div class="container" style="display: flex !important;">
+@*Sidebar*@
+<div>
+    <partial name="SidebarPartial" for="SidebarData" />
+</div>
+@*Sidebar*@
+
+<div class="container" id="movieDetailContainer" style="display: flex !important;">
     <div id="movieDetailsImageContainer">
         <img src="@Model.ImageUrl" />
     </div>
@@ -29,13 +35,23 @@
 </div>
 
 <div class="container" style="padding: 30px">
+    <h3>Rate</h3>
+    <div>
+        <div style="display: flex; justify-content:space-between" id="heartContainer">
+            <a class="gg-heart" onclick="Rate(event)" asp-controller="CommentController" asp-action="RateMovie" asp-route-id="1"></a>
+            <a class="gg-heart" onclick="Rate(event)" asp-controller="CommentController" asp-action="RateMovie" asp-route-id="2"></a>
+            <a class="gg-heart" onclick="Rate(event)" asp-controller="CommentController" asp-action="RateMovie" asp-route-id="3"></a>
+            <a class="gg-heart" onclick="Rate(event)" asp-controller="CommentController" asp-action="RateMovie" asp-route-id="4"></a>
+            <a class="gg-heart" onclick="Rate(event)" asp-controller="CommentController" asp-action="RateMovie" asp-route-id="5"></a>
+        </div>
+    </div>
     <h3>Comment section:</h3>
     @if (User.Identity.IsAuthenticated)
     {
         <br />
         <form style="display: flex" asp-controller="Comment" asp-action="AddComment">
-            <input id="movieId" name="movieId" value="@Model.Id" hidden/>
-            <input class="form-inline" placeholder="Enter a comment" id="comment" name="comment"/>
+            <input id="movieId" name="movieId" value="@Model.Id" hidden />
+            <input class="form-inline" placeholder="Enter a comment" id="comment" name="comment" />
             <input type="submit" class="btn btn-outline-dark" style="margin-left: 5px;" />
         </form>
         <br />
@@ -47,22 +63,22 @@
         }
         @foreach (var comment in Model.Comments)
         {
-    <div style="border-bottom: 1px solid rgb(255, 255, 255); padding: 20px;">
-        <p>By: <b> @comment.Username</b></p>
-        <span>Comment:</span>
-        <p style="margin-left: 8px">@comment.Comment</p>
-        <span>Posted on: @comment.DateCreated</span>
-        @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin")
-        {
-            <br />
-            <a href="#">Delete</a>
-        }
-        @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value != "admin")
-        {
-            <br />
-            <a href="#">Report</a>
-        }
-    </div>
+            <div style="border-bottom: 1px solid rgb(255, 255, 255); padding: 20px;">
+                <p>By: <b> @comment.Username</b></p>
+                <span>Comment:</span>
+                <p style="margin-left: 8px">@comment.Comment</p>
+                <span>Posted on: @comment.DateCreated</span>
+                @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin")
+                {
+                    <br />
+                    <a href="#">Delete</a>
+                }
+                @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value != "admin")
+                {
+                    <br />
+                    <a href="#">Report</a>
+                }
+            </div>
         }
     </div>
 </div>

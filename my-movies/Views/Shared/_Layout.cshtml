@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="~/lib/slick-1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="~/lib/slick-1.8.1/slick/slick-theme.css" />
     <link rel="stylesheet" href="~/lib/Hover-master/Hover-master/css/hover.css" />
+    <link rel="stylesheet" href="~/css/Sidebar.css" />
+
+    <link href='https://css.gg/heart.css' rel='stylesheet'>
+    <link href='https://unpkg.com/css.gg/icons/css/heart.css' rel='stylesheet'>
+    <link href='https://cdn.jsdelivr.net/npm/css.gg/icons/css/heart.css' rel='stylesheet'>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -28,6 +33,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                @if (ViewBag.header == "All movies" || ViewBag.header == "Movie details")
+                {
+                    <li class="fas fa-bars" id="btn" onclick="ToggleSidebar()"></li>
+                }
                 <li class="nav-item">
                     <a class="nav-link text-light" asp-controller="Home" asp-action="HomePage">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -36,8 +45,8 @@
                         About Us
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Our story</a>
-                        <a class="dropdown-item" href="#">Contact us</a>
+                        <a class="dropdown-item layoutLinks" href="#">Our story</a>
+                        <a class="dropdown-item layoutLinks" href="#">Contact us</a>
                     </div>
                 </li>
                 @if (User.Identity.IsAuthenticated)
@@ -47,17 +56,17 @@
                             Hi @User.Identity.Name !
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                            <a class="dropdown-item" asp-controller="User" asp-action="UserDetails">Account settings</a>
-                            <a class="dropdown-item" asp-controller="Home" asp-action="ModifyMovies">Modify movies</a>
+                            <a class="dropdown-item layoutLinks" asp-controller="User" asp-action="UserDetails">Account settings</a>
+                            <a class="dropdown-item layoutLinks" asp-controller="Home" asp-action="ModifyMovies">Modify movies</a>
                             @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin" || User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "sub-admin")
                             {
                                 @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin")
                                 {
-                                    <a class="dropdown-item" asp-controller="User" asp-action="ManageUsers">Manage users</a>
+                                    <a class="dropdown-item layoutLinks" asp-controller="User" asp-action="ManageUsers">Manage users</a>
                                 }
-                                <a class="dropdown-item" asp-controller="Home" asp-action="MoviesForApproval">Approve movies</a>
+                                <a class="dropdown-item layoutLinks" asp-controller="Home" asp-action="MoviesForApproval">Approve movies</a>
                             }
-                            <a class="dropdown-item" asp-controller="Auth" asp-action="SignOut">Sign out</a>
+                            <a class="dropdown-item layoutLinks" asp-controller="Auth" asp-action="SignOut">Sign out</a>
                         </div>
                     </li>
                 }
@@ -77,6 +86,8 @@
             </form>
         </div>
     </nav>
+    @*Sidebar toggleer*@
+    @*Sidebar toggleer*@
 
     <div id="layoutHeader">
         <h2>@ViewBag.header</h2>
@@ -92,12 +103,10 @@
         </div>
     </footer>
 
-    @*<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>*@
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js"></script>
     <script src="~/lib/slick-1.8.1/slick/slick.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>

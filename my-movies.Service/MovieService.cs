@@ -1,8 +1,10 @@
 ﻿using my_movies.Data;
 using my_movies.Repository.Interfaces;
+using my_movies.Service.DTO;
 using my_movies.Service.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace my_movies.Service
@@ -66,6 +68,56 @@ namespace my_movies.Service
         {
             movie.IsApproved = true;
             MovieRepo.UpdateMovie(movie);
+        }
+
+        public SidebarData SidebarData()
+        {
+            var allMovies = MovieRepo.GetAll();
+
+            var mostViews = allMovies
+                .OrderByDescending(x => x.Views)
+                .Take(5)
+                .Select(x => new SidebarModel()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Views = x.Views,
+                    DateCreated = x.DateCreated.ToString("dd-MM-yyyy")
+                })
+                .ToList();
+
+            var recentlyAdded = allMovies
+                .OrderByDescending(x => x.DateCreated)
+                .Take(5)
+                .Select(x => new SidebarModel()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Views = x.Views,
+                    DateCreated = x.DateCreated.ToString("dd-MM-yyyy")
+                })
+                .ToList();
+
+            var mostCommented = allMovies
+                .OrderByDescending(x => x.MovieComments.Count)
+                .Take(5)
+                .Select(x => new SidebarModel()
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Views = x.Views,
+                    DateCreated = x.DateCreated.ToString("dd-MM-yyyy"),
+                    NoOfComments = x.MovieComments.Count
+                })
+                .ToList();
+
+            var sidebarData = new SidebarData()
+            {
+                MostViews = mostViews,
+                RecentlyAdded = recentlyAdded,
+                MostCommented = mostCommented
+            };
+            return sidebarData;
         }
     }
 }

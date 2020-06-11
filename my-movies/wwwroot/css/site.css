@@ -1,11 +1,20 @@
 ﻿body{
     background-color: black;
-    color: whitesmoke;
+    color: whitesmoke !important;
 }
 table{
     color: whitesmoke !important;
 }
-#movieDetailsImageContainer{
+table tr:hover{
+    color: black !important;
+    background-color: whitesmoke !important;
+}
+#movieDetailContainer {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+#movieDetailsImageContainer {
     width: inherit;
 }
 #movieDetailsImageContainer img{
@@ -26,9 +35,9 @@ table{
     background: rgba(0, 0, 0, 0.9) !important;
 }
 .dropdown-item{
-    color: whitesmoke;
+    color: whitesmoke !important;
 }
-.dropdown-item:hover{
+.layoutLinks:hover {
     color: black !important;
 }
 .approveBtnContainer {
@@ -91,12 +100,25 @@ table{
     width: 90% !important;
     margin: auto !important;
 }
+
+/*rating stars style*/
+#heartContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    font-size:1.2em;
+    margin-left: 13px;
+}
+#heartContainer p{
+    cursor: pointer;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-    position: relative;
-    min-height: 100%;
-}
+    html {
+        position: relative;
+        min-height: 100%;
+    }
 
 body {
   /* Margin bottom by footer height */
