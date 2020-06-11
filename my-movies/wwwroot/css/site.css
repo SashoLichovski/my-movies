@@ -1,14 +1,10 @@
-﻿/*body{
+﻿body{
     background-color: black;
     color: whitesmoke;
 }
 table{
     color: whitesmoke !important;
 }
-tr:hover{
-    background-color:aliceblue;
-    color: black;
-}*/
 #movieDetailsImageContainer{
     width: inherit;
 }

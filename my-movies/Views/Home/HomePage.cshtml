@@ -5,15 +5,15 @@
 }
 <style>
     h3{
-        padding: 10px 5px;
-        /*color: white;*/
+        width: 100%;
+        text-align: center;
     }
 </style>
     <h3>All genres</h3>
 <div class="multiple-items">
     @foreach (var movie in Model)
     {
-        <div class="imgContainer hvr-float-shadow">
+        <div class="imgContainer hvr-grow">
             <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@movie.Id">
                 <img src="@movie.ImageUrl" class="card-img-top" alt="...">
             </a>

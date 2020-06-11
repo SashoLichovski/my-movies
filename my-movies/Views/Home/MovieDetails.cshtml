@@ -33,8 +33,9 @@
     @if (User.Identity.IsAuthenticated)
     {
         <br />
-        <form style="display: flex">
-            <input class="form-inline" placeholder="Enter a comment"/>
+        <form style="display: flex" asp-controller="Comment" asp-action="AddComment">
+            <input id="movieId" name="movieId" value="@Model.Id" hidden/>
+            <input class="form-inline" placeholder="Enter a comment" id="comment" name="comment"/>
             <input type="submit" class="btn btn-outline-dark" style="margin-left: 5px;" />
         </form>
         <br />
@@ -46,12 +47,22 @@
         }
         @foreach (var comment in Model.Comments)
         {
-            <div style="border-bottom: 1px solid rgba(0,0,0,0.5); padding: 20px;">
-                <p>By: <b> @comment.Username</b></p>
-                <span>Comment:</span>
-                <p style="margin-left: 8px">@comment.Comment</p>
-                <span>Posted on: @comment.DateCreated</span>
-            </div>
+    <div style="border-bottom: 1px solid rgb(255, 255, 255); padding: 20px;">
+        <p>By: <b> @comment.Username</b></p>
+        <span>Comment:</span>
+        <p style="margin-left: 8px">@comment.Comment</p>
+        <span>Posted on: @comment.DateCreated</span>
+        @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value == "admin")
+        {
+            <br />
+            <a href="#">Delete</a>
+        }
+        @if (User.Identity.IsAuthenticated && User.FindFirst("Role").Value != "admin")
+        {
+            <br />
+            <a href="#">Report</a>
+        }
+    </div>
         }
     </div>
 </div>

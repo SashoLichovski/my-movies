@@ -35,6 +35,7 @@ namespace my_movies.Helpers
         {
             var model = new MovieDetailsModel()
             {
+                Id = movie.Id,
                 ImageUrl = movie.ImageUrl,
                 Title = movie.Title,
                 Description = movie.Description,
