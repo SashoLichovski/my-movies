@@ -24,7 +24,6 @@ namespace my_movies.Data
         public DateTime DateCreated { get; set; }
         public int Views { get; set; }
         public bool IsApproved { get; set; }
-
         public List<MovieComment> MovieComments { get; set; }
     }
 }

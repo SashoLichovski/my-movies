@@ -26,6 +26,7 @@ namespace my_movies.Service
         {
             var movie = MovieRepo.MovieDetailsById(id);
             movie.Views++;
+            MovieRepo.UpdateMovie(movie);
             return movie;
         }
 

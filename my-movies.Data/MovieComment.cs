@@ -19,5 +19,7 @@ namespace my_movies.Data
         [Required]
         public int UserId { get; set; }
         public User User { get; set; }
+
+        public bool IsApproved { get; set; }
     }
 }

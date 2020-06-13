@@ -45,17 +45,16 @@ function ToggleSidebar() {
     } else if (sidebar.style.left == "0px") {
         sidebar.style.left = "-300px";
     }
-    console.log(sidebar.style.left.toString());
 }
 
 // Ratings with stars
 function Rate(event) {
-    console.log(event.target.id);
-    var heart = document.getElementById(event.target.id);
-    console.log(heart.previousSibling);
-    var container = document.getElementById("heartContainer");
-    console.log(container.children);
-    for (var i = 0; i < event.target.id; i++) {
-        container.children[i].style.color = "red";
-    }
+
+
+    var thumb = document.getElementById(event.target.id);
+    thumb.style.color = "green"
+
+    var input = document.getElementById("rating");
+    input.value = event.target.id
+    console.log(input.value)
 }

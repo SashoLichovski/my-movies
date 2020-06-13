@@ -8,5 +8,9 @@ namespace my_movies.Service.Interfaces
     public interface ICommentService
     {
         void Add(string comment, int movieId, int userId);
+        List<MovieComment> GetAllForApproval();
+        MovieComment GetById(int commentId);
+        void Approve(MovieComment comment);
+        void Remove(MovieComment comment);
     }
 }

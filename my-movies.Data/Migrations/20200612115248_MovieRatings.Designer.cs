@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using my_movies.Data;
 
 namespace my_movies.Data.Migrations
 {
     [DbContext(typeof(MyMoviesContext))]
-    partial class MyMoviesContextModelSnapshot : ModelSnapshot
+    [Migration("20200612115248_MovieRatings")]
+    partial class MovieRatings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,9 +80,6 @@ namespace my_movies.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsApproved")
-                        .HasColumnType("bit");
-
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 
@@ -94,6 +93,31 @@ namespace my_movies.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("MovieComments");
+                });
+
+            modelBuilder.Entity("my_movies.Data.MovieRating", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MovieRatings");
                 });
 
             modelBuilder.Entity("my_movies.Data.User", b =>
@@ -129,6 +153,21 @@ namespace my_movies.Data.Migrations
 
                     b.HasOne("my_movies.Data.User", "User")
                         .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("my_movies.Data.MovieRating", b =>
+                {
+                    b.HasOne("my_movies.Data.Movie", "Movie")
+                        .WithMany("MovieRatings")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("my_movies.Data.User", "User")
+                        .WithMany("MovieRatings")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

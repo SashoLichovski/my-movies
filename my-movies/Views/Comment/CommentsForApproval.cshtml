@@ -1,0 +1,32 @@
+﻿@model List<my_movies.ViewModels.CommentForApprovalModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Comment</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                if (!item.IsApproved)
+                {
+                    <tr>
+                        <td>@item.Comment</td>
+                        <td>
+                            <a asp-controller="Comment" asp-action="ApproveComment" asp-route-id="@item.Id">Approve</a> |
+                            <a asp-controller="Comment" asp-action="DeleteComment" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+

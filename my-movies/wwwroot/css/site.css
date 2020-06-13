@@ -104,13 +104,13 @@ table tr:hover{
 /*rating stars style*/
 #heartContainer{
     display: flex;
-    justify-content: space-between;
-    width: 15%;
+    align-items: center;
     font-size:1.2em;
     margin-left: 13px;
 }
-#heartContainer p{
+#heartContainer div{
     cursor: pointer;
+    margin-left: 15px;
 }
 
 /* Sticky footer styles

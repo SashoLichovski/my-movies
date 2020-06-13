@@ -22,9 +22,31 @@ namespace my_movies.Service
                 Comment = comment,
                 UserId = userId,
                 MovieId = movieId,
-                DateCreated = DateTime.Now
+                DateCreated = DateTime.Now,
+                IsApproved = false
             };
             CommentsRepository.Add(movieComment);
+        }
+
+        public List<MovieComment> GetAllForApproval()
+        {
+            return CommentsRepository.GetAllForApproval();
+        }
+
+        public MovieComment GetById(int commentId)
+        {
+            return CommentsRepository.GetById(commentId);
+        }
+
+        public void Approve(MovieComment comment)
+        {
+            comment.IsApproved = true;
+            CommentsRepository.Update(comment);
+        }
+
+        public void Remove(MovieComment comment)
+        {
+            CommentsRepository.Remove(comment);
         }
     }
 }

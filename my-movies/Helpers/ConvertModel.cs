@@ -26,9 +26,22 @@ namespace my_movies.Helpers
         {
             return new MovieCommentModel()
             {
+                Id = movieComment.Id,
                 Comment = movieComment.Comment,
                 Username = movieComment.User.Username,
-                DateCreated = movieComment.DateCreated
+                DateCreated = movieComment.DateCreated,
+                IsApproved = movieComment.IsApproved
+            };
+        }
+        public static CommentForApprovalModel ToCommentForApproval(MovieComment movieComment)
+        {
+            return new CommentForApprovalModel
+            {
+                Id = movieComment.Id,
+                Comment = movieComment.Comment,
+                MovieId = movieComment.MovieId,
+                UserId = movieComment.UserId,
+                IsApproved = movieComment.IsApproved
             };
         }
         public static MovieDetailsModel ConvertMovieDetailsModel(Movie movie)
@@ -44,7 +57,7 @@ namespace my_movies.Helpers
                 DateCreated = movie.DateCreated,
                 Duration = movie.Duration,
                 Views = movie.Views,
-                Comments = movie.MovieComments.Select(x => ToMovieCommentModel(x)).ToList()
+                Comments = movie.MovieComments.Select(x => ToMovieCommentModel(x)).ToList(),
             };
             return model;
         }

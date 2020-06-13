@@ -8,6 +8,7 @@
     top: 55px;
     background-color: #343a40;
     z-index: 1;
+    transition: left 0.7s;
 }
 #btn {
     background: #343a40;
