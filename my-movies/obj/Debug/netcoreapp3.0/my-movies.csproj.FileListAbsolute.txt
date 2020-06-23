@@ -229,3 +229,4 @@ C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\my-movies
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.Views.pdb
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\my-movies.csproj.CopyComplete
 C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\obj\Debug\netcoreapp3.0\Razor\Views\Comment\CommentsForApproval.cshtml.g.cs
+C:\Users\Sasho\Desktop\MVC\my-movies\my-movies\bin\Debug\netcoreapp3.0\libman.json

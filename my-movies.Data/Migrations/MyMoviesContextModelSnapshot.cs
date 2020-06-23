@@ -96,6 +96,34 @@ namespace my_movies.Data.Migrations
                     b.ToTable("MovieComments");
                 });
 
+            modelBuilder.Entity("my_movies.Data.MovieLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("MovieLikes");
+                });
+
             modelBuilder.Entity("my_movies.Data.User", b =>
                 {
                     b.Property<int>("Id")
@@ -129,6 +157,21 @@ namespace my_movies.Data.Migrations
 
                     b.HasOne("my_movies.Data.User", "User")
                         .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("my_movies.Data.MovieLike", b =>
+                {
+                    b.HasOne("my_movies.Data.Movie", "Movie")
+                        .WithMany("Likes")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("my_movies.Data.User", "User")
+                        .WithMany("Likes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

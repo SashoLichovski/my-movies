@@ -22,4 +22,9 @@
     <ProjectReference Include="..\my-movies.Service\my-movies.Service.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\axios\" />
+  </ItemGroup>
+
 </Project>

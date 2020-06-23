@@ -14,6 +14,7 @@ namespace my_movies.Data
         public string Role { get; set; }
 
         public List<MovieComment> Comments { get; set; }
+        public List<MovieLike> Likes { get; set; }
 
     }
 }

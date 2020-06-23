@@ -1,4 +1,5 @@
 ﻿using my_movies.Service.DTO;
+using my_movies.ViewModels.LikeModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace my_movies.ViewModels
         public DateTime DateCreated { get; set; }
         public int Views { get; set; }
         public List<MovieCommentModel> Comments { get; set; }
+        public List<MovieLikeModel> Likes { get; set; }
+        public LikeStatus LikeStatus { get; set; }
         public SidebarData SidebarData { get; set; }
     }
 }

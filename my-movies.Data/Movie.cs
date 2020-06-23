@@ -25,5 +25,6 @@ namespace my_movies.Data
         public int Views { get; set; }
         public bool IsApproved { get; set; }
         public List<MovieComment> MovieComments { get; set; }
+        public List<MovieLike> Likes { get; set; }
     }
 }

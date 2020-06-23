@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using my_movies.Helpers;
 using my_movies.Service.Interfaces;
 using my_movies.ViewModels;
+using my_movies.ViewModels.LikeModels;
 
 namespace my_movies.Controllers
 {
@@ -48,11 +49,31 @@ namespace my_movies.Controllers
         [AllowAnonymous]
         public IActionResult MovieDetails(int id)
         {
+            ViewBag.header = "Movie details";
+
             var movie = MovieService.MovieDetailsById(id);
             var sidebarData = MovieService.SidebarData();
+
             var converted = ConvertModel.ConvertMovieDetailsModel(movie);
             converted.SidebarData = sidebarData;
-            ViewBag.header = "Movie details";
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = int.Parse(User.FindFirst("Id").Value);
+                var currentUserLike = converted.Likes.FirstOrDefault(x => x.UserId == userId);
+                if (currentUserLike != null)
+                {
+                    if (currentUserLike.IsLiked)
+                    {
+                        converted.LikeStatus = LikeStatus.Liked;
+                    }
+                    else
+                    {
+                        converted.LikeStatus = LikeStatus.Disliked;
+                    }
+                }
+            }
+
             return View(converted);
         }
 

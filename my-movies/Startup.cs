@@ -53,6 +53,8 @@ namespace my_movies
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ICommentService, CommentService>();
             services.AddTransient<ICommentsRepository, CommentsRepository>();
+            services.AddTransient<ILikeRepository, LikeRepository>();
+            services.AddTransient<ILikeService, LikeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

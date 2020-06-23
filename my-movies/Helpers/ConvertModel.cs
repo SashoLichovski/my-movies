@@ -1,5 +1,6 @@
 ﻿using my_movies.Data;
 using my_movies.ViewModels;
+using my_movies.ViewModels.LikeModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,8 +59,19 @@ namespace my_movies.Helpers
                 Duration = movie.Duration,
                 Views = movie.Views,
                 Comments = movie.MovieComments.Select(x => ToMovieCommentModel(x)).ToList(),
+                Likes = movie.Likes.Select(x => ToMovieLikeModel(x)).ToList()
             };
             return model;
+        }
+        public static MovieLikeModel ToMovieLikeModel(MovieLike movieLike)
+        {
+            return new MovieLikeModel
+            {
+                Id = movieLike.Id,
+                IsLiked = movieLike.Status,
+                UserId = movieLike.UserId,
+                MovieId = movieLike.MovieId
+            };
         }
         public static ChangeUsernameModel ToChangeUsernameModel(User user)
         {

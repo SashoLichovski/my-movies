@@ -10,6 +10,9 @@
         }
     }
 }
+@section Styles{ 
+    <link rel="stylesheet" href="~/css/movieLikes.css" />
+}
 
 @*Sidebar*@
 <div>
@@ -35,15 +38,42 @@
 </div>
 
 <div class="container" style="padding: 30px">
-    <div>
-        <form asp-controller="Comment" asp-action="RateMovie" id="heartContainer">
-            <h3>Like ?</h3>
-            <input type="hidden" id="rating" name="rating" value="" />
-            <input type="hidden" id="id" name="id" value="@Model.Id" />
-            <div class="fa fa-thumbs-up" id="1" onclick="Rate(event)"></div>
-            <div class="fa fa-thumbs-down" id="2" onclick="Rate(event)"></div>
-        </form>
+
+    <div id="likeCountContainer">
+        <p>Likes: <span id="likesCount">@Model.Likes.Where(x => x.IsLiked == true).Count()</span></p>
+        <p>Dislikes: <span id="dislikesCount">@Model.Likes.Where(x => x.IsLiked == false).Count()</span></p>
     </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (Model.LikeStatus == my_movies.ViewModels.LikeModels.LikeStatus.None)
+        {
+            <div id="likeBtnContainer">
+                <button id="addLikeBtn" class="btn btn-outline-success" onclick="AddLike(@Model.Id)">Like</button>
+                <button id="likedBtn" class="btn btn-success hideBtn" disabled>Liked</button>
+                <button id="addDislikeBtn" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
+                <button id="dislikedBtn" class="btn btn-danger hideBtn" disabled>Disliked</button>
+            </div>
+        }
+        else if (Model.LikeStatus == my_movies.ViewModels.LikeModels.LikeStatus.Liked)
+        {
+            <div id="likeBtnContainer">
+                <button id="addLikeBtn" class="btn btn-outline-success hideBtn" onclick="AddLike(@Model.Id)">Like</button>
+                <button id="likedBtn" class="btn btn-success" disabled>Liked</button>
+                <button id="addDislikeBtn" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
+                <button id="dislikedBtn" class="btn btn-danger hideBtn" disabled>Disliked</button>
+            </div>
+        }
+        else if (Model.LikeStatus == my_movies.ViewModels.LikeModels.LikeStatus.Disliked)
+        {
+            <div id="likeBtnContainer">
+                <button id="addLikeBtn" class="btn btn-outline-success" onclick="AddLike(@Model.Id)">Like</button>
+                <button id="likedBtn" class="btn btn-success hideBtn" disabled>Liked</button>
+                <button id="addDislikeBtn" class="btn btn-outline-danger hideBtn" onclick="AddDislike(@Model.Id)">Dislike</button>
+                <button id="dislikedBtn" class="btn btn-danger" disabled>Disliked</button>
+            </div>
+        }
+    }
+
     <hr />
     <h3>Comment section:</h3>
     @if (User.Identity.IsAuthenticated)
@@ -85,3 +115,7 @@
         }
     </div>
 </div>
+@section Scripts{ 
+    <script src="~/js/movieLikes.js"></script>
+    <script src="~/lib/axios/axios.js"></script>
+}

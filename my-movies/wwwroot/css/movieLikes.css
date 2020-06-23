@@ -1,0 +1,14 @@
+﻿#likeCountContainer{
+    display: flex;
+}
+#likeCountContainer p{
+    margin-right: 15px;
+}
+
+#likeBtnContainer button{
+    margin-right: 10px;
+}
+
+.hideBtn{
+    display: none;
+}

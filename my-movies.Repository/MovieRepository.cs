@@ -28,6 +28,7 @@ namespace my_movies.Repository
             return Context.Movies
                 .Include(x => x.MovieComments)
                 .ThenInclude(x => x.User)
+                .Include(x => x.Likes)
                 .FirstOrDefault(x => x.Id == id);
         }
 
