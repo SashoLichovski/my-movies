@@ -14,6 +14,7 @@ function AddLike(movieId) {
 
             ChangeLikeCount("likesCount", "increase");
 
+            RemoveVoteLink("block");
         })
         .catch(function (error) {
             console.log(error);
@@ -34,10 +35,36 @@ function AddDislike(movieId) {
 
             ChangeLikeCount("dislikesCount", "increase");
 
+            RemoveVoteLink("block");
         })
         .catch(function (error) {
             console.log(error);
         });
+}
+
+function RemoveVote(movieId) {
+    axios.post('/Like/RemoveVote', {
+        movieId: movieId
+    })
+        .then(function (response) {
+            if (document.getElementById("addLikeBtn").classList.contains("hideBtn")) {
+                SwitchButtons("addLikeBtn", "likedBtn");
+                ChangeLikeCount("likesCount", "decrease")
+            }
+
+            if (document.getElementById("addDislikeBtn").classList.contains("hideBtn")) {
+                SwitchButtons("addDislikeBtn", "dislikedBtn");
+                ChangeLikeCount("dislikesCount", "decrease")
+            }
+            RemoveVoteLink("none");
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+function RemoveVoteLink(displayValue) {
+    document.getElementById("removeVoteLink").style.display = displayValue;
 }
 
 function SwitchButtons(showBtnId, hideBtnId) {

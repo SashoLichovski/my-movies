@@ -22,6 +22,12 @@ namespace my_movies.Repository
             context.SaveChanges();
         }
 
+        public void Delete(MovieLike like)
+        {
+            context.MovieLikes.Remove(like);
+            context.SaveChanges();
+        }
+
         public MovieLike Get(int userId, int movieId)
         {
             return context.MovieLikes.FirstOrDefault(x => x.UserId == userId && x.MovieId == movieId);

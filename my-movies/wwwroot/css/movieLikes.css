@@ -12,3 +12,8 @@
 .hideBtn{
     display: none;
 }
+
+#removeVoteLink{
+    cursor: pointer;
+    color: whitesmoke;
+}

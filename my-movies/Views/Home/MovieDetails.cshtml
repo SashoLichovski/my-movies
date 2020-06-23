@@ -53,6 +53,7 @@
                 <button id="addDislikeBtn" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
                 <button id="dislikedBtn" class="btn btn-danger hideBtn" disabled>Disliked</button>
             </div>
+                <span id="removeVoteLink" style="display: none" onclick="RemoveVote(@Model.Id)">Remove vote</span>
         }
         else if (Model.LikeStatus == my_movies.ViewModels.LikeModels.LikeStatus.Liked)
         {
@@ -62,6 +63,7 @@
                 <button id="addDislikeBtn" class="btn btn-outline-danger" onclick="AddDislike(@Model.Id)">Dislike</button>
                 <button id="dislikedBtn" class="btn btn-danger hideBtn" disabled>Disliked</button>
             </div>
+            <span id="removeVoteLink" onclick="RemoveVote(@Model.Id)">Remove vote</span>
         }
         else if (Model.LikeStatus == my_movies.ViewModels.LikeModels.LikeStatus.Disliked)
         {
@@ -71,6 +73,7 @@
                 <button id="addDislikeBtn" class="btn btn-outline-danger hideBtn" onclick="AddDislike(@Model.Id)">Dislike</button>
                 <button id="dislikedBtn" class="btn btn-danger" disabled>Disliked</button>
             </div>
+            <span id="removeVoteLink" onclick="RemoveVote(@Model.Id)">Remove vote</span>
         }
     }
 

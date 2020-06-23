@@ -57,5 +57,11 @@ namespace my_movies.Service
                 likeRepository.Add(newLike);
             }
         }
+
+        public void RemoveVote(int userId, int movieId)
+        {
+            var like = likeRepository.Get(userId, movieId);
+            likeRepository.Delete(like);
+        }
     }
 }

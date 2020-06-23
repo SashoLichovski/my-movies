@@ -33,5 +33,14 @@ namespace my_movies.Controllers
 
             return Ok();
         }
+
+        public IActionResult RemoveVote([FromBody]MovieLikeRequestModel request)
+        {
+            var userId = int.Parse(User.FindFirst("Id").Value);
+
+            likeService.RemoveVote(userId, request.MovieId);
+
+            return Ok();
+        }
     }
 }

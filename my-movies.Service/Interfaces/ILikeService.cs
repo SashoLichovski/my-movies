@@ -8,5 +8,6 @@ namespace my_movies.Service.Interfaces
     {
         void AddLike(int userId, int movieId);
         void AddDislike(int userId, int movieId);
+        void RemoveVote(int userId, int movieId);
     }
 }

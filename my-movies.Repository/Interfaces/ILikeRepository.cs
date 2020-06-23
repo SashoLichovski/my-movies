@@ -10,5 +10,6 @@ namespace my_movies.Repository.Interfaces
         MovieLike Get(int userId, int movieId);
         void Update(MovieLike currentLike);
         void Add(MovieLike newLike);
+        void Delete(MovieLike like);
     }
 }
